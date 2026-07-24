@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PulseCheck is a beginner-friendly URL audit dashboard."
+    />
+    <title>PulseCheck | URL Audit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- The decorative dots are only for visual style. -->
+    <div class="page-glow glow-one"></div>
+    <div class="page-glow glow-two"></div>
+
+    <main class="app-shell">
+      <!-- Header: product name and current service status. -->
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="PulseCheck home">
+          <span class="brand-mark">P</span>
+          <span>pulse<span>check</span></span>
+        </a>
+        <div class="service-status">
+          <span class="status-dot"></span>
+          All systems operational
+        </div>
+      </header>
+
+      <!-- Hero area introduces the app and contains the main URL form. -->
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">WEBSITE HEALTH, SIMPLIFIED</p>
+          <h1>Know what your<br /><em>website</em> is saying.</h1>
+          <p class="hero-description">
+            Run a quick technical pulse check on any public URL. Clear results,
+            no confusing jargon.
+          </p>
+        </div>
+
+        <form class="audit-card" id="audit-form">
+          <label for="url-input">Enter a website to audit</label>
+          <div class="url-row">
+            <span class="url-icon">⌁</span>
+            <input
+              id="url-input"
+              type="text"
+              placeholder="https://yourwebsite.com"
+              autocomplete="url"
+              required
+            />
+            <button type="submit">Run audit <span>→</span></button>
+          </div>
+          <p class="input-help" id="input-help">We’ll check availability, security, speed, and more.</p>
+          <div class="audit-details">
+            <span>◷ Usually ready in seconds</span>
+            <span>⌘ No signup required</span>
+          </div>
+        </form>
+      </section>
+
+      <!-- A small stats strip gives the dashboard a live feeling. -->
+      <section class="stats-grid" aria-label="Service statistics">
+        <div><strong>24,891</strong><span>audits completed</span></div>
+        <div><strong>99.98%</strong><span>uptime this month</span></div>
+        <div><strong>&lt; 3 sec</strong><span>average audit time</span></div>
+      </section>
+
+      <!-- JavaScript shows this area after the user submits a valid URL. -->
+      <section class="results-section" id="results" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LATEST REPORT</p>
+            <h2>Your site’s pulse</h2>
+          </div>
+          <p class="scanned-url" id="scanned-url"></p>
+        </div>
+
+        <div class="score-layout">
+          <article class="overall-score">
+            <div class="score-ring"><span id="score-number">92</span><small>/100</small></div>
+            <div>
+              <p class="score-label">Overall health</p>
+              <h3>Looking strong</h3>
+              <p>Just a few small opportunities to make your site even better.</p>
+            </div>
+          </article>
+          <div class="result-summary">
+            <span class="success-badge">● Audit complete</span>
+            <p>Checked <strong id="check-count">6</strong> key website signals</p>
+          </div>
+        </div>
+
+        <div class="check-grid">
+          <article class="check-card good">
+            <div class="check-top"><span class="check-icon">✓</span><span class="label-good">Passed</span></div>
+            <h3>Site is reachable</h3>
+            <p>Your homepage responded successfully with a healthy status code.</p>
+            <span class="metric">200 OK</span>
+          </article>
+          <article class="check-card good">
+            <div class="check-top"><span class="check-icon">✓</span><span class="label-good">Passed</span></div>
+            <h3>Secure connection</h3>
+            <p>Your site uses HTTPS, keeping visitor data private in transit.</p>
+            <span class="metric">TLS enabled</span>
+          </article>
+          <article class="check-card attention">
+            <div class="check-top"><span class="check-icon">!</span><span class="label-warn">Needs attention</span></div>
+            <h3>Page speed</h3>
+            <p>Your page loaded a little slower than our recommended target.</p>
+            <span class="metric">2.8 seconds</span>
+          </article>
+          <article class="check-card good">
+            <div class="check-top"><span class="check-icon">✓</span><span class="label-good">Passed</span></div>
+            <h3>Mobile friendly</h3>
+            <p>Your page is configured to adapt well to smaller screens.</p>
+            <span class="metric">Viewport found</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="how-it-works">
+        <div>
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h2>Simple checks.<br />Useful answers.</h2>
+        </div>
+        <div class="steps">
+          <article><span>01</span><h3>Add your URL</h3><p>Paste the public website address you want to check.</p></article>
+          <article><span>02</span><h3>We inspect it</h3><p>PulseCheck looks at the most important technical signals.</p></article>
+          <article><span>03</span><h3>Get clear results</h3><p>See what is healthy and where you can improve.</p></article>
+        </div>
+      </section>
+
+      <!-- Required visible credit from the task brief. -->
+      <footer>
+        <span>© 2026 PulseCheck</span>
+        <span>Built for <a href="https://digitalheroesco.com" target="_blank" rel="noreferrer">Digital Heroes Training Task</a></span>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
