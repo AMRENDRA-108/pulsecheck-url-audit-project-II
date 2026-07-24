@@ -1,81 +1,261 @@
 # 🚀 PulseCheck – URL Audit Dashboard
 
-A modern, responsive, beginner-friendly **URL Audit Dashboard** built using **HTML, CSS, and JavaScript**. This project allows users to enter a website URL, validates the input, and displays a sample website health report with a clean and interactive user interface.
+A responsive URL Audit Dashboard built using HTML, CSS, and JavaScript. Users can enter a website URL, validate it, and view an interactive website health report.
+
+> **Built for Digital Heroes Training Task**
 
 ---
 
-## 📌 Project Overview
+# 🌐 Live Demo
 
-PulseCheck is a frontend project designed to demonstrate modern web development concepts. It focuses on creating an attractive UI, responsive layouts, DOM manipulation, form validation, and smooth user interaction.
+Add your deployed URL here
 
-> **Note:** This project currently uses demo audit data. It does not connect to a real backend or API.
-
----
-
-## ✨ Features
-
-* 🌐 URL input with automatic `https://` normalization
-* ✅ URL validation using JavaScript
-* 📊 Interactive audit result section
-* 📱 Fully responsive design
-* 🎨 Modern UI with clean typography
-* ⚡ Smooth scrolling to results
-* 🖱️ Hover animations and transitions
-* 💻 Beginner-friendly and easy-to-understand code
+```
+file:///c%3A/Users/Amrendra/OneDrive/Desktop/SDE%20task/index.html
+```
 
 ---
 
-## 🛠️ Technologies Used
+# 📌 Project Overview
 
-* **HTML5**
-* **CSS3**
+PulseCheck is a frontend prototype of a Website Audit Dashboard.
 
-  * CSS Variables
-  * Flexbox
-  * CSS Grid
-  * Media Queries
-  * Responsive Design
-  * Animations & Transitions
-* **JavaScript (ES6+)**
+Users can
 
-  * DOM Manipulation
-  * Event Listeners
-  * Form Validation
-  * Functions
-  * Regular Expressions (Regex)
-  * Error Handling (`try...catch`)
+- Enter a website URL
+- Validate the URL
+- View audit results
+- Experience a responsive dashboard UI
+
+Currently this project displays demo audit data.
+
+Future versions can integrate real APIs like
+
+- Google PageSpeed Insights
+- Lighthouse
+- SSL Checker
+- SEO APIs
 
 ---
 
-## 📂 Project Structure
+# ✨ Features
 
-```text
-PulseCheck/
+- URL Validation
+- Responsive UI
+- Interactive Dashboard
+- Smooth Scrolling
+- Modern Design
+- Clean Code Structure
+- Beginner Friendly
+
+---
+
+# 🛠 Tech Stack
+
+Frontend
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+
+Future Backend
+
+- Node.js
+- Express.js
+
+Future Database
+
+- MongoDB / PostgreSQL
+
+Deployment
+
+- GitHub Pages / Netlify / Vercel
+
+---
+
+# 📁 Project Structure
+
+```
+PulseCheck
 │
 ├── index.html
 ├── styles.css
 ├── script.js
 ├── README.md
-└── assets/ (optional)
+└── assets
 ```
 
 ---
 
-## 🚀 How to Run the Project
+# 🏗 System Architecture
 
-1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/pulsecheck-url-audit.git
+```
+          User
+            │
+            ▼
+     HTML Frontend
+            │
+            ▼
+ JavaScript Validation
+            │
+            ▼
+     API Gateway
+            │
+            ▼
+      Queue System
+            │
+     ┌───────────────┐
+     ▼               ▼
+ Audit Worker 1   Audit Worker 2
+     ▼               ▼
+        Database
+            │
+            ▼
+      Results API
+            │
+            ▼
+      Frontend UI
 ```
 
-2. Open the project folder.
+---
 
-3. Open `index.html` in your browser.
+# 📊 Data Flow
 
-OR
+1. User enters URL
 
-Use **VS Code Live Server** for a better development experience.
+2. JavaScript validates URL
+
+3. Frontend sends request to Backend API
+
+4. API pushes request into Queue
+
+5. Worker processes audit
+
+6. Worker stores result in Database
+
+7. Frontend fetches audit result
+
+8. Dashboard displays report
+
+---
+
+# 🚦 Queue Strategy
+
+To support
+
+- 10,000 audits/day
+- 500 concurrent users
+
+Queue System can be used.
+
+Recommended
+
+- RabbitMQ
+or
+- Redis Queue (BullMQ)
+
+Benefits
+
+- No request loss
+- Better scalability
+- Load balancing
+- Faster response time
+
+---
+
+# 💾 State Management
+
+Frontend
+
+- Input field
+- Current audit result
+- Loading state
+
+Backend
+
+- Queue
+- Worker status
+- Audit history
+- Database
+
+---
+
+
+
+# ❌ Failure Mode Analysis
+
+## 1. High Traffic
+
+Problem
+
+500 users submit URLs simultaneously.
+
+Solution
+
+- Queue System
+- Auto Scaling
+- Load Balancer
+
+---
+
+## 2. Backend Failure
+
+Problem
+
+Audit service crashes.
+
+Solution
+
+- Retry mechanism
+- Health checks
+- Backup workers
+
+---
+
+## 3. Database Failure
+
+Problem
+
+Database unavailable.
+
+Solution
+
+- Replication
+- Backup
+- Failover database
+
+---
+
+# 📈 Monitoring
+
+Monitor
+
+- API Response Time
+- Server CPU
+- Memory Usage
+- Queue Length
+- Error Rate
+- Database Connections
+
+Tools
+
+- Grafana
+- Prometheus
+- CloudWatch
+
+---
+
+
+
+# 🚨 Alerts
+
+Alert when
+
+- API response > 2 sec
+- CPU > 80%
+- Queue > 1000 jobs
+- Memory > 85%
+- Error rate > 5%
 
 ---
 
@@ -87,119 +267,113 @@ Use **VS Code Live Server** for a better development experience.
 <img width="1866" height="915" alt="AdobeExpressPhotos_1eaf445c8ad248979128cca286d2fb43_CopyEdited" src="https://github.com/user-attachments/assets/1f7fb3f6-9dcd-4766-a51f-9e174edb0097" />
 
 
+---
 
+# 🔄 Rollback Plan
 
+If deployment fails
 
+1. Stop deployment
 
+2. Roll back previous version
 
-## 🎯 What I Learned
+3. Restart services
 
-Through this project, I learned:
+4. Verify health checks
 
-* Semantic HTML
-* Responsive Web Design
-* CSS Variables
-* Flexbox & CSS Grid
-* Modern UI Design
-* Form Validation
-* JavaScript DOM Manipulation
-* Event Handling
-* URL Validation
-* Responsive Layout Techniques
-* Clean Code Organization
+5. Monitor logs
+
+Deployment Strategy
+
+- Blue Green Deployment
+
+or
+
+- Rolling Deployment
 
 ---
 
-## 📚 JavaScript Concepts Used
+# 📚 JavaScript Concepts Used
 
-* Variables (`const`)
-* Functions
-* Parameters
-* Return Statement
-* Template Literals
-* Regular Expressions (Regex)
-* `querySelector()`
-* Event Listeners
-* `preventDefault()`
-* `trim()`
-* `new URL()`
-* `try...catch`
-* `textContent`
-* `classList.add()`
-* `classList.remove()`
-* `scrollIntoView()`
-* `focus()`
+- DOM Manipulation
+- Event Listeners
+- URL Validation
+- Regular Expressions
+- Functions
+- Arrow Functions
+- try...catch
+- Template Literals
+- classList
+- scrollIntoView()
 
 ---
 
-## 🎨 CSS Concepts Used
+# 🎨 CSS Concepts Used
 
-* CSS Variables
-* Flexbox
-* CSS Grid
-* Box Model
-* Typography
-* Hover Effects
-* Transitions
-* Transforms
-* Border Radius
-* Box Shadow
-* Responsive Units
-* Media Queries
-* Positioning
-* Z-index
-* Opacity
-* Blur Effects
+- Flexbox
+- Grid
+- CSS Variables
+- Media Queries
+- Responsive Design
+- Box Shadow
+- Border Radius
+- Hover Effects
+- Typography
+- Transitions
 
 ---
 
-## 🌟 Future Improvements
+# 🚀 Future Improvements
 
-* Connect with a real Website Audit API
-* Generate real SEO reports
-* Check SSL certificates
-* Analyze website performance
-* Export reports as PDF
-* Dark Mode support
-* User authentication
-* Audit history
-* Dashboard analytics
+- Real Website Audit API
+- User Authentication
+- Export PDF Report
+- Audit History
+- Dark Mode
+- Performance Charts
+- Lighthouse Integration
+- SSL Analysis
+- SEO Report
+- Accessibility Report
 
 ---
 
-## 👨‍💻 Author
+# 📖 What I Learned
+
+- Responsive Web Design
+- Modern CSS
+- DOM Manipulation
+- JavaScript Validation
+- Project Architecture
+- Scalable System Design
+- Queue-based Processing
+- Monitoring Strategies
+- Deployment Planning
+
+---
+
+# 👨‍💻 Author
 
 **Amrendra Kumar**
 
-* 💼 Aspiring Full Stack Developer
-* 🌱 Learning Java, JavaScript, SQL, Python, and Data Analytics
+GitHub
 
-**GitHub:**
 https://github.com/AMRENDRA-108
 
-**LinkedIn:**
+LinkedIn
+
 https://www.linkedin.com/in/amrendra-kumar-3973a8264
 
 ---
 
-## 📄 License
+# 📄 License
 
-This project is created for learning and portfolio purposes.
-
-Feel free to fork, learn from, and improve it.
+This project is built for educational and portfolio purposes.
 
 ---
 
-## ⭐ Support
+# ⭐ Built for Digital Heroes Training Task
 
-If you found this project helpful:
+Built for **Digital Heroes Training Task**
 
-⭐ Star this repository
-
-🍴 Fork the project
-
-💡 Share your feedback
-
-Happy Coding! 🚀
-# pulsecheck-url-audit
-A responsive URL Audit Dashboard built with HTML, CSS, and JavaScript. It validates website URLs and displays a clean, interactive audit report using modern frontend techniques.
+https://digitalheroesco.com
